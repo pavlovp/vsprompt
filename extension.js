@@ -48,7 +48,9 @@ function openNewFileInSplitView(filePath) {
   const uri = vscode.Uri.parse(`file:///${filePath}`);
   const options = {
     viewColumn: vscode.ViewColumn.Two, // display the document in the second column
-    preview: false // open the document in a new editor pane, not as a preview
+    preview: false, // open the document in a new editor pane, not as a preview
+    preserveFocus: true // don't move the focus to the new editor
+
   };
   vscode.window.showTextDocument(uri, options);
 }
@@ -78,7 +80,7 @@ function activate(context) {
         const newFileName = getNewFileName(fileName);
         const resultFileName = path.join(dirName, newFileName);
 
-        fs.writeFileSync(resultFileName, result);
+        fs.writeFileSync(resultFileName, result.trim());
         openNewFileInSplitView(resultFileName);
         vscode.window.showInformationMessage(`Result saved to ${resultFileName}.`);
       }
@@ -87,7 +89,14 @@ function activate(context) {
 }
 
 function getNewFileName(fileName) {
-  return `completion-${fileName}`
+  const parts = fileName.split('.');
+  if (parts.length > 2) {
+    parts.pop(); // remove the last part
+    return parts.join('.');
+  }
+  else{
+    return `${fileName}-completion`;
+  }
 }
 
 exports.activate = activate;

@@ -7,7 +7,8 @@
         "vscode": "^1.58.0"
     },
     "repository": {
-        
+        "type": "git",
+        "url":"https://github.com/pavlovp/vsprompt"
     },
     
     "categories": [
