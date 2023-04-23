@@ -32,15 +32,6 @@
                 "when": "editorTextFocus"
             }
         ],
-        "viewsContainers": {
-            "activitybar": [
-                {
-                    "id": "openaiIcon",
-                    "title": "OpenAI Icon",
-                    "icon": "openai-icon.svg"
-                }
-            ]
-        },
         "views": {
             "openaiIcon": [
                 {
