@@ -1,0 +1,72 @@
+{
+    "name": "vscode-openai-extension",
+    "displayName": "OpenAI Extension",
+    "description": "Visual Studio Code extension to invoke the OpenAI API.",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.58.0"
+    },
+    "repository": {
+        
+    },
+    
+    "categories": [
+        "Productivity"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.invokeOpenAI",
+                "title": "Invoke OpenAI API"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.invokeOpenAI",
+                "key": "ctrl+shift+a",
+                "mac": "cmd+shift+a",
+                "when": "editorTextFocus"
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "openaiIcon",
+                    "title": "OpenAI Icon",
+                    "icon": "openai-icon.svg"
+                }
+            ]
+        },
+        "views": {
+            "openaiIcon": [
+                {
+                    "id": "openaiIcon",
+                    "name": "OpenAI Icon"
+                }
+            ]
+        },
+        "configuration": {
+            "type": "object",
+            "title": "OpenAI Extension Configuration",
+            "properties": {
+                "openai.apiKey": {
+                    "type": "string",
+                    "description": "API key for the OpenAI API."
+                }
+            }
+        }
+    },
+    "dependencies": {
+        "axios": "^0.24.0",
+        "openai": "^3.2.1"
+    },
+    "devDependencies": {
+        "@types/node": "^14.14.37",
+        "typescript": "^4.3.5",
+        "vscode-test": "^1.6.0"
+    }
+}
