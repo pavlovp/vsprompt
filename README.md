@@ -1,5 +1,9 @@
 # VSPrompt Extension
 
+Tired of copypasting from ChatGPT?
+
+![Usage](usage.gif)
+
 This is a Visual Studio Code extension that allows you to invoke the OpenAI API to perform various tasks, such as text completion, language translation, and more.
 It automatically creates new file containing the result.
 
