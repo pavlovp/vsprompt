@@ -64,8 +64,8 @@ function openNewFileInSplitView(filePath) {
 
 function activate(context) {
   openAIButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-  openAIButton.text = '$(cpu) Complete with OpenAI (Cmd+Shift+a)';
-  openAIButton.tooltip = 'Complete with OpenAI';
+  openAIButton.text = '$(cpu) Complete with VSPrompt (Cmd+Shift+a)';
+  openAIButton.tooltip = 'Complete with VSPrompt';
   openAIButton.command = 'extension.invokeOpenAI';
   openAIButton.show();
   context.subscriptions.push(openAIButton);
