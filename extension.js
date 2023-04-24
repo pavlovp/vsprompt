@@ -21,6 +21,10 @@ async function invokeOpenAI(prompt) {
     return '';
   }
 
+  const loadingIndicator = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 99);
+  loadingIndicator.text = "$(sync~spin) Completing with OpenAI...";
+  loadingIndicator.show();
+
   try {
     const configuration = new Configuration({
       apiKey: openaiApiKey,
@@ -35,14 +39,17 @@ async function invokeOpenAI(prompt) {
       frequency_penalty: openaiFrequencyPenalty,
       presence_penalty: openaiPresencePenalty,
     });
-    const textResp = completion.data.choices[0].text;
+    const textResp = completion.data.choices[0].text.trim();
 
     return textResp;
   } catch (error) {
     vscode.window.showErrorMessage(`OpenAI API error: ${error.message}`);
     return '';
+  } finally {
+    loadingIndicator.dispose();
   }
 }
+
 
 function openNewFileInSplitView(filePath) {
   const uri = vscode.Uri.parse(`file:///${filePath}`);
