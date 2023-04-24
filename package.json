@@ -1,8 +1,9 @@
 {
-    "name": "vscode-openai-extension",
-    "displayName": "OpenAI Extension",
-    "description": "Visual Studio Code extension to invoke the OpenAI API.",
+    "name": "vsprompt",
+    "displayName": "VSPrompt",
+    "description": "OpenAI completions saved to new file",
     "version": "1.0.0",
+    "funding": "https://www.buymeacoffee.com/pavelpavlov",
     "engines": {
         "vscode": "^1.58.0"
     },
@@ -10,9 +11,8 @@
         "type": "git",
         "url":"https://github.com/pavlovp/vsprompt"
     },
-    
     "categories": [
-        "Productivity"
+        "Other"
     ],
     "activationEvents": [
         "*"
@@ -33,14 +33,8 @@
                 "when": "editorTextFocus"
             }
         ],
-        "views": {
-            "openaiIcon": [
-                {
-                    "id": "openaiIcon",
-                    "name": "OpenAI Icon"
-                }
-            ]
-        },
+
+        "icon": "vsprompt.svg",
         "configuration": {
             "type": "object",
             "title": "OpenAI Extension Configuration",
