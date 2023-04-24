@@ -9,7 +9,7 @@ async function invokeOpenAI(prompt) {
   const openaiApiKey = vscode.workspace.getConfiguration().get('openai.apiKey');
   const openaiModel = vscode.workspace.getConfiguration().get('openai.model') || "text-davinci-003";
   const openaiTemperature = vscode.workspace.getConfiguration().get('openai.temperature') || 0.7;
-  const openaiMaxTokens = vscode.workspace.getConfiguration().get('openai.maxTokens') || 1000;
+  const openaiMaxTokens = vscode.workspace.getConfiguration().get('openai.maxTokens') || 4000;
   const openaiTopP = vscode.workspace.getConfiguration().get('openai.topP') || 1;
   const openaiFrequencyPenalty = vscode.workspace.getConfiguration().get('openai.frequencyPenalty') || 0;
   const openaiPresencePenalty = vscode.workspace.getConfiguration().get('openai.presencePenalty') || 0;
@@ -64,7 +64,7 @@ function openNewFileInSplitView(filePath) {
 
 function activate(context) {
   openAIButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-  openAIButton.text = '$(cpu) Complete with OpenAI (ctrl+shift+a)';
+  openAIButton.text = '$(cpu) Complete with OpenAI (Cmd+Shift+a)';
   openAIButton.tooltip = 'Complete with OpenAI';
   openAIButton.command = 'extension.invokeOpenAI';
   openAIButton.show();
