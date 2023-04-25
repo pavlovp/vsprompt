@@ -2,7 +2,7 @@
     "name": "vsprompt",
     "displayName": "VSPrompt",
     "description": "OpenAI completions saved to new file",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "funding": "https://www.buymeacoffee.com/pavelpavlov",
     "engines": {
         "vscode": "^1.58.0"

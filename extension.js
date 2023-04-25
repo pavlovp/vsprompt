@@ -25,12 +25,14 @@ async function invokeOpenAI(prompt) {
   loadingIndicator.text = "$(sync~spin) Completing with OpenAI...";
   loadingIndicator.show();
 
+  let completion = null;
+
   try {
     const configuration = new Configuration({
       apiKey: openaiApiKey,
     });
     const openai = new OpenAIApi(configuration);
-    const completion = await openai.createCompletion({
+    completion = await openai.createCompletion({
       model: openaiModel,
       prompt: prompt,
       temperature: openaiTemperature,
@@ -44,6 +46,7 @@ async function invokeOpenAI(prompt) {
     return textResp;
   } catch (error) {
     vscode.window.showErrorMessage(`OpenAI API error: ${error.message}`);
+    console.log(JSON.stringify(completion, null, ' '));
     return '';
   } finally {
     loadingIndicator.dispose();
